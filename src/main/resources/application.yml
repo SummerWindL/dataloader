@@ -1,0 +1,30 @@
+logging:
+  file:
+    name: logs/dataloader.log
+  level:
+    root: INFO
+    com:
+      advance: DEBUG
+    org:
+      springframework:
+        data:
+          mongodb:
+            core: WARN
+      # 获取到请求参数
+      hibernate:
+        type:
+          descriptor:
+            sql:
+              BasicBinder: trace
+spring:
+  main:
+    allow-bean-definition-overriding: true # 存在repo相同的情况 原phis的存储过程与aigw重名
+  profiles:
+    active:
+      - dev
+    #项目启动后执行建表语句
+      #schema:
+    #  - classpath:sql/init.sql
+    #sql-script-encoding: utf-8
+    #platform: oracle
+    #initialization-mode: always
